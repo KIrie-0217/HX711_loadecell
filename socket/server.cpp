@@ -64,9 +64,9 @@ int main() {
 		rsize = recv( client_sockfd, buf, sizeof( buf ), 0 );
 		//printf( "rsize = %d\n", rsize );
 		if ( rsize > 0 ) {
-			//printf( "receive: %s\n", buf );
+			printf( "receive: %s\n", buf );
 			for(int i = 0;i<rsize;i++){
-
+				
 				if(buf[i] == ','){
 					flag = 0;
 					try{

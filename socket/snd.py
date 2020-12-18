@@ -12,7 +12,6 @@ def com_send():
 
     while True:
         try:
-            # 通信の確立
             sock = socket(AF_INET, SOCK_STREAM)
             sock.connect((HOST, PORT))
 
