@@ -47,7 +47,7 @@ String out6;
 String out7;
 String out8;
 String out9;
-
+//float out[9];
 
 // class init
 loadcell cell_1;
@@ -104,7 +104,7 @@ void setup() {
 }
 
 void loop() {
-  time_m = millis();
+  //time_m = millis();
   float data1;
   float data2;
   float data3;
@@ -128,7 +128,32 @@ void loop() {
   //Serial.println(S1);
   //Serial.println(S2);
 
+  /*
+  time_m = millis();
+  out[0] = cell_1.GetGram(1);
+  out[1] = cell_2.GetGram(1);
+  out[2]= cell_3.GetGram(1);
+  out[3] = cell_4.GetGram(1);
+  out[4] = cell_5.GetGram(1);
+  out[5] = cell_6.GetGram(1);
+  out[6] = cell_7.GetGram(1);
+  out[7] = cell_8.GetGram(1);
+  out[8] = cell_9.GetGram(1);
+  Serial.print(out[0]);
+  Serial.print(out[1]);
+  Serial.print(out[2]);
+  Serial.print(out[3]);
+  Serial.print(out[4]);
+  Serial.print(out[5]);
+  Serial.print(out[6]);
+  Serial.print(out[7]);
+  Serial.print(out[8]);
+  Serial.println();
   
+  time_m -= millis();
+  Serial.println(time_m);
+  */
+  //time_m = millis();
   data1 = cell_1.GetGram(1);
   data2 = cell_2.GetGram(1);
   data3 = cell_3.GetGram(1);
@@ -158,7 +183,7 @@ void loop() {
   output["7"]=out7;
   output["8"]=out8;
   output["9"]=out9;
-  time_m -= millis();
   Serial.println(output);
-  Serial.println(time_m);
+  //time_m -= millis();
+  //Serial.println(time_m);
 }

@@ -28,9 +28,9 @@ void loadcell::Init(void){
     pinMode(clk,OUTPUT);
 
     digitalWrite(clk,1);
-    delayMicroseconds(10);
+    delayMicroseconds(1);
     digitalWrite(clk,0);
-    delayMicroseconds(10); 
+    delayMicroseconds(1); 
 
     offset_val = GetGram(5);
     //Serial.print("offset");
@@ -47,16 +47,16 @@ long loadcell::Read(void){
   for(int i=0;i<24;i++)
   {
     digitalWrite(clk,1);
-    delayMicroseconds(1);
+    //delayMicroseconds(1);
     digitalWrite(clk,0);
-    delayMicroseconds(1);
+    //delayMicroseconds(1);
     data = (data<<1)|(digitalRead(dout));
   }
   //Serial.println(data,HEX);   
   digitalWrite(clk,1);
-  delayMicroseconds(1);
+  //delayMicroseconds(1);
   digitalWrite(clk,0);
-  delayMicroseconds(1);
+  //delayMicroseconds(1);
   return data^0x800000; 
 }
 
