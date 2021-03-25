@@ -9,7 +9,6 @@ serialport = '/dev/ttyACM0'
 serialV = 9600
 
 def readbypy(serialport,serialV):
-    fifo = pipemethod.openFIFO("/tmp/ktl-fifo/torque","w")
     while True:
         try:
 
@@ -25,7 +24,6 @@ def readbypy(serialport,serialV):
                     data = json.loads(String_data.decode().rstrip("\r\n"))
                     data = [float(data["1"]),float(data["2"]),float(data["3"]),float(data["4"]),float(data["5"]),float(data["6"]),float(data["7"]),float(data["8"]),float(data["9"])]
                     print(data)
-                    pipemethod.pack_and_write(data,fifo)
 
                 except:
                     data = ""  
@@ -46,5 +44,4 @@ def main():
 if __name__ == "__main__":
     main()
             
-
 

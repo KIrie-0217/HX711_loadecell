@@ -32,7 +32,7 @@ void loadcell::Init(void){
     digitalWrite(clk,0);
     delayMicroseconds(1); 
 
-    offset_val = GetGram(5);
+    offset_val = GetGram(10);
     //Serial.print("offset");
     //Serial.print(offset_val);
     //Serial.println();
@@ -43,20 +43,20 @@ void loadcell::Init(void){
 long loadcell::Read(void){
   long data=0;
   while(digitalRead(dout)!=0);
-  //delayMicroseconds(5);
+  delayMicroseconds(5);
   for(int i=0;i<24;i++)
   {
     digitalWrite(clk,1);
-    //delayMicroseconds(1);
+    delayMicroseconds(1);
     digitalWrite(clk,0);
-    //delayMicroseconds(1);
+    delayMicroseconds(1);
     data = (data<<1)|(digitalRead(dout));
   }
   //Serial.println(data,HEX);   
   digitalWrite(clk,1);
-  //delayMicroseconds(1);
+  delayMicroseconds(1);
   digitalWrite(clk,0);
-  //delayMicroseconds(1);
+  delayMicroseconds(1);
   return data^0x800000; 
 }
 
@@ -81,15 +81,10 @@ float loadcell::GetGram(char num){
     #define HX711_SCALE     (OUT_VOL * HX711_AVDD / LOAD *HX711_PGA)
 
     float data;
+    int time_m;
 
-    data = Averaging(Read(),num)*HX711_ADC1bit; 
-    //Serial.println( HX711_AVDD);   
-    //Serial.println( HX711_ADC1bit);   
-    //Serial.println( HX711_SCALE);   
-    //Serial.println( data);   
-    data =  data / HX711_SCALE;
+    data = Read()*HX711_ADC1bit /HX711_SCALE -offset_val; 
 
-    data = data - offset_val;
 
   return data;
 

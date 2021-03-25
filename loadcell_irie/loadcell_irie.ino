@@ -68,39 +68,39 @@ void setup() {
   
   cell_1.Pin(pin_dout1,pin_clk1);
   cell_1.Init();
-  cell_1.Cariblation(0.539,0.398);
+  cell_1.Cariblation(0.53,-759.5);
 
   cell_2.Pin(pin_dout2,pin_clk2);
   cell_2.Init();
-  cell_2.Cariblation(0.539,0.398);
+  cell_2.Cariblation(0.52,-891);
 
   cell_3.Pin(pin_dout3,pin_clk3);
   cell_3.Init();
-  cell_3.Cariblation(0.539,0.398);
+  cell_3.Cariblation(0.52,-740);
 
   cell_4.Pin(pin_dout4,pin_clk4);
   cell_4.Init();
-  cell_4.Cariblation(0.539,0.398);
+  cell_4.Cariblation(0.52,-485.5);
 
   cell_5.Pin(pin_dout5,pin_clk5);
   cell_5.Init();
-  cell_5.Cariblation(0.539,0.398);
+  cell_5.Cariblation(-0.52,-274);
 
   cell_6.Pin(pin_dout6,pin_clk6);
   cell_6.Init();
-  cell_6.Cariblation(0.539,0.398);
+  cell_6.Cariblation(0.52,-804);
 
   cell_7.Pin(pin_dout7,pin_clk7);
   cell_7.Init();
-  cell_7.Cariblation(0.539,0.398);
+  cell_7.Cariblation(0.52,0.2);
 
   cell_8.Pin(pin_dout8,pin_clk8);
   cell_8.Init();
-  cell_8.Cariblation(0.539,0.398);
+  cell_8.Cariblation(0.52,0.5);
 
   cell_9.Pin(pin_dout9,pin_clk9);
   cell_9.Init();
-  cell_9.Cariblation(0.539,0.398);
+  cell_9.Cariblation(0.52,0.7);
 }
 
 void loop() {
@@ -114,55 +114,17 @@ void loop() {
   float data7;
   float data8;
   float data9;
-  //char S1[20];
-  //char s[20];
+ 
 
-  //char S2[20];
-  //char s2[20];
-
-  //data2 = cell_1.GetGram_cal(5);
-
-
-  //sprintf(S1,"%s [g] (0x%4x)",dtostrf((data-cell_1.offset_val), 5, 3, s),cell_1.Read());
-  //sprintf(S2,"%s [g] (0x%4x)",dtostrf((data2-cell_1.offset_val), 5, 3, s2),cell_1.Read());
-  //Serial.println(S1);
-  //Serial.println(S2);
-
-  /*
-  time_m = millis();
-  out[0] = cell_1.GetGram(1);
-  out[1] = cell_2.GetGram(1);
-  out[2]= cell_3.GetGram(1);
-  out[3] = cell_4.GetGram(1);
-  out[4] = cell_5.GetGram(1);
-  out[5] = cell_6.GetGram(1);
-  out[6] = cell_7.GetGram(1);
-  out[7] = cell_8.GetGram(1);
-  out[8] = cell_9.GetGram(1);
-  Serial.print(out[0]);
-  Serial.print(out[1]);
-  Serial.print(out[2]);
-  Serial.print(out[3]);
-  Serial.print(out[4]);
-  Serial.print(out[5]);
-  Serial.print(out[6]);
-  Serial.print(out[7]);
-  Serial.print(out[8]);
-  Serial.println();
-  
-  time_m -= millis();
-  Serial.println(time_m);
-  */
-  //time_m = millis();
-  data1 = cell_1.GetGram(1);
-  data2 = cell_2.GetGram(1);
-  data3 = cell_3.GetGram(1);
-  data4 = cell_4.GetGram(1);
-  data5 = cell_5.GetGram(1);
-  data6 = cell_6.GetGram(1);
-  data7 = cell_7.GetGram(1);
-  data8 = cell_8.GetGram(1);
-  data9 = cell_9.GetGram(1);
+  data1 = cell_1.GetGram_cal(1);
+  data2 = cell_2.GetGram_cal(1);
+  data3 = cell_3.GetGram_cal(1);
+  data4 = cell_4.GetGram_cal(1);
+  data5 = cell_5.GetGram_cal(1);
+  data6 = cell_6.GetGram_cal(1);
+  data7 = cell_7.GetGram_cal(1);
+  data8 = cell_8.GetGram_cal(1);
+  data9 = cell_9.GetGram_cal(1);
 
   out1 = (String)data1;
   out2 = (String)data2;
@@ -184,6 +146,5 @@ void loop() {
   output["8"]=out8;
   output["9"]=out9;
   Serial.println(output);
-  //time_m -= millis();
-  //Serial.println(time_m);
+
 }
